@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bùi Đức Minh | Portfolio Vũ Trụ - Logistics & International Trade</title>
+  <meta name="description"
+    content="Portfolio cá nhân phong cách Universe của Bùi Đức Minh - Sinh viên Kinh tế Đối ngoại CLC Đại học Ngoại Thương (FTU), Thực tập sinh Logistics, IELTS 7.5." />
+
+  <!-- Google Fonts: Hỗ trợ tiếng Việt 100% với phong cách Vũ Trụ hiện đại (Chakra Petch & Be Vietnam Pro & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,500;1,700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- FontAwesome Icons for crisp space & UI elements -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body class="universe-theme">
+
+  <!-- Interactive Cosmic Canvas: Stars, Constellations, Space Dust -->
+  <canvas id="cosmic-canvas"></canvas>
+
+  <!-- Ambient Space Dust & Glow Layers -->
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div class="nebula nebula-3"></div>
+
+  <!-- Cosmic Audio Synthesizer (Space Drone ambient SFX) -->
+  <div class="cosmic-audio-hud">
+    <button id="audio-toggle-btn" class="hud-pill" title="Bật/Tắt âm thanh không gian Synth Ambient">
+      <span class="hud-icon"><i class="fa-solid fa-volume-xmark" id="audio-icon"></i></span>
+      <span class="hud-text" id="audio-label">Âm Thanh Vũ Trụ: TẮT</span>
+      <span class="hud-freq-bars">
+        <i></i><i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+
+  <!-- Space Orbit Navigation Bar -->
+  <header class="cosmic-nav-wrapper">
+    <nav class="cosmic-nav glass-card" id="main-nav">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-orbit"><i class="fa-solid fa-satellite"></i></span>
+        <div class="logo-text">
+          <span class="logo-name">BÙI ĐỨC MINH</span>
+          <span class="logo-sub">FTU // LOGISTICS CADET</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-shuttle-space"></i> <span>Khởi Đầu</span></a>
+        </li>
+        <li><a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> <span>Học Vấn</span></a>
+        </li>
+        <li><a href="#experience" class="nav-link"><i class="fa-solid fa-timeline"></i> <span>Hành Trình</span></a></li>
+        <li><a href="#skills" class="nav-link"><i class="fa-solid fa-atom"></i> <span>Năng Lực</span></a></li>
+        <li><a href="#simulator" class="nav-link"><i class="fa-solid fa-network-wired"></i> <span>Mô Phỏng
+              XNK</span></a></li>
+        <li><a href="#contact" class="nav-link"><i class="fa-solid fa-tower-broadcast"></i> <span>Trạm Liên
+              Lạc</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="assets/Bui_Duc_Minh_CV.pdf" target="_blank" class="btn-cosmic-glow" id="btn-download-cv"
+          download="CV_Bui_Duc_Minh_Logistics.pdf">
+          <i class="fa-solid fa-download"></i>
+          <span>Tải CV (PDF)</span>
+        </a>
+        <button class="nav-toggle-btn" id="mobile-toggle" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Interactive Floating Planets in Background Space -->
+  <div class="background-solar-system" aria-hidden="true">
+    <!-- Planet 1: Saturn with Ring (FTU Orbit) -->
+    <div class="celestial-body planet-saturn" data-scroll-speed="0.08" title="Hành tinh FTU">
+      <div class="planet-sphere"></div>
+      <div class="saturn-ring"></div>
+      <div class="celestial-label">🪐 Quỹ Đạo FTU</div>
+    </div>
+
+    <!-- Planet 2: Terra Azure (Logistics Ocean & Atmosphere) -->
+    <div class="celestial-body planet-terra" data-scroll-speed="-0.06" title="Hành tinh Chuỗi Cung Ứng">
+      <div class="planet-sphere">
+        <div class="cloud-layer"></div>
+      </div>
+      <div class="orbit-satellite">
+        <div class="mini-moon"></div>
+      </div>
+      <div class="celestial-label">🌍 Logistics Hub</div>
+    </div>
+
+    <!-- Planet 3: Crimson Mars (INTERCHAIN Lead) -->
+    <div class="celestial-body planet-mars" data-scroll-speed="0.12" title="Hành tinh INTERCHAIN">
+      <div class="planet-sphere"></div>
+      <div class="celestial-label">🔴 INTERCHAIN 2025</div>
+    </div>
+
+    <!-- Planet 4: Electric Violet Neptune (Global Commerce) -->
+    <div class="celestial-body planet-neptune" data-scroll-speed="-0.1" title="Hành tinh Ngoại Thương">
+      <div class="planet-sphere"></div>
+      <div class="celestial-label">🔮 Ngoại Thương CLC</div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION: Mission Command & Planetary Avatar -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+
+        <!-- Left: Cosmic Telemetry & Intro Text -->
+        <div class="hero-content">
+          <div class="telemetry-badge">
+            <span class="live-pulse"></span>
+            <span class="badge-code">STATION ID: FTU-2024-LOGISTICS</span>
+            <span class="badge-status">SẴN SÀNG CẤT CÁNH</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-sub">Xin chào, tôi là</span>
+            <span class="title-main neon-text-gradient">BÙI ĐỨC MINH</span>
+          </h1>
+
+          <div class="hero-dynamic-role">
+            <span class="role-prefix">Định vị:</span>
+            <span class="typing-role" id="typing-text">Thực Tập Sinh Logistics & Xuất Nhập Khẩu</span>
+            <span class="cursor-blink">|</span>
+          </div>
+
+          <p class="hero-description">
+            Sinh viên chuyên ngành <strong>Kinh tế Đối ngoại (Chương trình Chất lượng cao)</strong> tại
+            <strong>Đại học Ngoại Thương (FTU)</strong>. Đam mê tối ưu hóa dòng chảy hàng hóa quốc tế,
+            am hiểu sâu về <strong>Incoterms 2020</strong>, quy trình chứng từ xuất nhập khẩu và sở hữu năng lực
+            lãnh đạo - kết nối đối tác đã được kiểm chứng qua các chiến dịch quy mô lớn.
+          </p>
+
+          <!-- Core Stat Stellar Badges -->
+          <div class="stellar-stats-grid">
+            <div class="stat-pill glass-card">
+              <div class="stat-icon"><i class="fa-solid fa-language"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">IELTS 7.5</span>
+                <span class="stat-tag">Thành Thạo 4 Kỹ Năng</span>
+              </div>
+            </div>
+
+            <div class="stat-pill glass-card">
+              <div class="stat-icon"><i class="fa-solid fa-file-contract"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">8.5 / 10</span>
+                <span class="stat-tag">Thương Mại QT & Thư Tín</span>
+              </div>
+            </div>
+
+            <div class="stat-pill glass-card">
+              <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">MOS Master</span>
+                <span class="stat-tag">Word, Excel, PowerPoint</span>
+              </div>
+            </div>
+
+            <div class="stat-pill glass-card">
+              <div class="stat-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+              <div class="stat-info">
+                <span class="stat-number">100% KPI</span>
+                <span class="stat-tag">Tài Trợ INTERCHAIN 2025</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#simulator" class="btn-primary-warp">
+              <span><i class="fa-solid fa-compass"></i> Khám Phá Mô Phỏng XNK</span>
+              <div class="btn-warp-aura"></div>
+            </a>
+            <a href="assets/Bui_Duc_Minh_CV.pdf" target="_blank" class="btn-secondary-space"
+              download="CV_Bui_Duc_Minh_Logistics.pdf">
+              <i class="fa-solid fa-cloud-arrow-down"></i>
+              <span>Xem / Tải CV Trực Tiếp</span>
+            </a>
+            <a href="#contact" class="btn-outline-starlight">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Liên Hệ</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Cosmic Portrait with Orbiting Rings & Planets -->
+        <div class="hero-visual">
+          <div class="avatar-orbit-system" id="hero-orbit-system">
+
+            <!-- Elliptical Orbit Rings -->
+            <div class="orbit-ring ring-inner">
+              <div class="orbiting-planet mini-planet-1" title="Incoterms 2020">
+                <span class="planet-tag">Incoterms</span>
+              </div>
+            </div>
+            <div class="orbit-ring ring-middle">
+              <div class="orbiting-planet mini-planet-2" title="IELTS 7.5">
+                <span class="planet-tag">IELTS 7.5</span>
+              </div>
+            </div>
+            <div class="orbit-ring ring-outer">
+              <div class="orbiting-planet mini-planet-3" title="IBC FTU">
+                <span class="planet-tag">IBC FTU</span>
+              </div>
+            </div>
+
+            <!-- Central Holographic Portrait Container -->
+            <div class="avatar-core-wrapper">
+              <div class="avatar-glow-halo"></div>
+              <div class="avatar-frame">
+                <img src="assets/avatar.png" alt="Chân dung Bùi Đức Minh - FTU" class="avatar-img" />
+              </div>
+              <!-- Floating HUD Data Chip -->
+              <div class="avatar-hud-chip top-chip">
+                <i class="fa-solid fa-graduation-cap"></i> FTU - KTĐN CLC
+              </div>
+              <div class="avatar-hud-chip bottom-chip">
+                <i class="fa-solid fa-anchor"></i> Logistics Specialist Trainee
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator Wave -->
+      <a href="#education" class="scroll-down-hint">
+        <span class="scroll-label">DU HÀNH TIẾP</span>
+        <div class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+      </a>
+    </section>
+
+    <!-- SECTION 1: HỌC VẤN & BỆ PHÓNG TRI THỨC (Education - FTU Orbit) -->
+    <section id="education" class="section-container">
+      <div class="section-header text-center">
+        <div class="section-tag-hud"><i class="fa-solid fa-satellite-dish"></i> QUỸ ĐẠO BẬC CAO</div>
+        <h2 class="section-title">Học Vấn & Bệ Phóng Tri Thức</h2>
+        <p class="section-subtitle">Nền tảng học thuật vững chắc tại ngôi trường kinh tế đối ngoại hàng đầu Việt Nam</p>
+      </div>
+
+      <div class="education-grid">
+        <!-- Main University Card -->
+        <div class="edu-card main-edu glass-card glow-border">
+          <div class="edu-header">
+            <div class="edu-crest">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <div class="edu-heading">
+              <span class="edu-period"><i class="fa-regular fa-calendar-days"></i> 08/2024 - Hiện tại</span>
+              <h3 class="edu-school">ĐẠI HỌC NGOẠI THƯƠNG (FTU)</h3>
+              <div class="edu-degree">Ngành Kinh tế Đối ngoại — Chương trình Chất lượng cao (CLC)</div>
+            </div>
+          </div>
+
+          <div class="edu-body">
+            <p class="edu-mission-quote">
+              <i class="fa-solid fa-quote-left"></i>
+              Môi trường đào tạo chuyên sâu về thương mại quốc tế, trang bị tư duy đàm phán toàn cầu,
+              am tường luật chơi ngoại thương cùng kỷ luật và tinh thần chủ động cao.
+            </p>
+
+            <div class="edu-courses-showcase">
+              <div class="course-box glass-inset">
+                <div class="course-head">
+                  <div class="course-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                  <div class="course-meta">
+                    <h4>Giao Dịch Thương Mại Quốc Tế</h4>
+                    <span class="score-badge">Điểm: 8.5 / 10.0</span>
+                  </div>
+                </div>
+                <ul class="course-points">
+                  <li><i class="fa-solid fa-check"></i> Nắm vững toàn bộ quy trình đàm phán, ký kết & thực thi hợp đồng
+                    ngoại thương quốc tế.</li>
+                  <li><i class="fa-solid fa-check"></i> Ứng dụng thành thạo bộ quy tắc <strong>Incoterms 2020</strong>
+                    để phân chia chi phí, rủi ro và trách nhiệm giao nhận.</li>
+                  <li><i class="fa-solid fa-check"></i> Hiểu sâu các phương thức thanh toán quốc tế trọng yếu: L/C (Thư
+                    tín dụng), T/T (Chuyển tiền), D/P, D/A.</li>
+                </ul>
+              </div>
+
+              <div class="course-box glass-inset">
+                <div class="course-head">
+                  <div class="course-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                  <div class="course-meta">
+                    <h4>Tiếng Anh Chuyên Ngành: Thư Tín Thương Mại</h4>
+                    <span class="score-badge">Điểm: 8.5 / 10.0</span>
+                  </div>
+                </div>
+                <ul class="course-points">
+                  <li><i class="fa-solid fa-check"></i> Kỹ năng viết thư tín thương mại chuẩn mực quốc tế với văn phong
+                    trang trọng, gãy gọn.</li>
+                  <li><i class="fa-solid fa-check"></i> Thành thạo soạn thảo: Thư hỏi hàng (Inquiry), Chào hàng (Offer),
+                    Báo giá (Quotation).</li>
+                  <li><i class="fa-solid fa-check"></i> Soạn thảo Thư đặt hàng (Order), Thư thanh toán (Payment) và Thư
+                    khiếu nại (Claim/Complaint).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Logistics Goal Highlight -->
+            <div class="target-callout glass-inset">
+              <div class="callout-icon"><i class="fa-solid fa-crosshairs"></i></div>
+              <div class="callout-content">
+                <strong>Mục tiêu nghề nghiệp:</strong> Khát khao áp dụng kiến thức ngoại thương vào thực tế quản lý
+                chuỗi cung ứng,
+                chứng từ vận tải (Bill of Lading, Sea/Air Waybill, C/O, Packing List), thủ tục hải quan và vận hành kho
+                bãi.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HÀNH TRÌNH KHÁM PHÁ & THỰC CHIẾN (Experience - Mission Trajectory) -->
+    <section id="experience" class="section-container">
+      <div class="section-header text-center">
+        <div class="section-tag-hud"><i class="fa-solid fa-route"></i> DÒNG THỜI GIAN NHIỆM VỤ</div>
+        <h2 class="section-title">Kinh Nghiệm & Dấu Ấn Lãnh Đạo</h2>
+        <p class="section-subtitle">Các chiến dịch lớn và vị trí dẫn dắt đã rèn giũa bản lĩnh làm việc dưới áp lực cao
+        </p>
+      </div>
+
+      <div class="mission-timeline">
+
+        <!-- Timeline Item 1: INTERCHAIN 2025 - IBC FTU -->
+        <div class="timeline-station glass-card glow-border" data-station="1">
+          <div class="station-telemetry">
+            <span class="station-year"><i class="fa-regular fa-clock"></i> 11/2024 - 06/2025</span>
+            <span class="station-status status-active">CHIẾN DỊCH TRỌNG ĐIỂM</span>
+          </div>
+
+          <div class="station-header">
+            <div class="station-logo-box"><i class="fa-solid fa-globe"></i></div>
+            <div class="station-titles">
+              <h3 class="station-name">CLB KINH DOANH QUỐC TẾ - IBC FTU</h3>
+              <div class="station-role">
+                <span class="role-badge">Lead Ban Đối Ngoại</span>
+                <span class="campaign-title">Cuộc thi Chuỗi Cung Ứng & Logistics: <strong>INTERCHAIN
+                    2025</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-details-grid">
+            <div class="station-block">
+              <h4><i class="fa-solid fa-users-gear"></i> Khả năng Teamwork & Kết Nối</h4>
+              <p>Trực tiếp dẫn dắt nhóm Đối ngoại của chiến dịch; phối hợp chặt chẽ với ban Chuyên môn và Ban Truyền
+                thông để đồng bộ hóa thông tin, đảm bảo thông điệp tiếp cận doanh nghiệp chuẩn xác, chuyên nghiệp và uy
+                tín.</p>
+            </div>
+
+            <div class="station-block">
+              <h4><i class="fa-solid fa-handshake"></i> Trách Nhiệm & Giải Quyết Vấn Đề</h4>
+              <p>Xây dựng kế hoạch tài trợ chi tiết; chủ động nghiên cứu, phân loại và trực tiếp liên hệ, đàm phán với
+                các doanh nghiệp theo từng gói tài trợ phù hợp. Quản trị tiến độ và cam kết quyền lợi với các nhà tài
+                trợ.</p>
+            </div>
+          </div>
+
+          <div class="station-achievement glass-inset">
+            <div class="achieve-icon"><i class="fa-solid fa-trophy"></i></div>
+            <div class="achieve-text">
+              <strong>KẾT QUẢ ĐẠT ĐƯỢC:</strong> Hoàn thành 100% chỉ tiêu tài trợ được giao cho sự kiện, góp phần tạo
+              nên sự thành công vang dội của INTERCHAIN 2025; được tập thể công nhận về kỹ năng kết nối đối tác, tinh
+              thần trách nhiệm đến cùng và sự linh hoạt trong xử lý khủng hoảng.
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2: CLB TRẠNG CHUYÊN -->
+        <div class="timeline-station glass-card" data-station="2">
+          <div class="station-telemetry">
+            <span class="station-year"><i class="fa-regular fa-clock"></i> 01/2023 - 02/2024</span>
+            <span class="station-status">KHỞI DỰNG & DẪN DẮT</span>
+          </div>
+
+          <div class="station-header">
+            <div class="station-logo-box"><i class="fa-solid fa-flag"></i></div>
+            <div class="station-titles">
+              <h3 class="station-name">CLB TRẠNG CHUYÊN</h3>
+              <div class="station-role">
+                <span class="role-badge">Leader CLB Thế Hệ Đầu Tiên (Founding Leader)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-details-grid">
+            <div class="station-block">
+              <h4><i class="fa-solid fa-chess-king"></i> Khả Năng Lãnh Đạo & Trách Nhiệm</h4>
+              <p>Chịu trách nhiệm cao nhất về định hướng hoạt động toàn diện của CLB; trực tiếp xây dựng
+                <strong>Masterplan chi tiết</strong> cho toàn bộ chiến dịch nội dung và chuỗi sự kiện lớn hàng năm, bảo
+                đảm chất lượng và tiến độ nghiêm ngặt.
+              </p>
+            </div>
+
+            <div class="station-block">
+              <h4><i class="fa-solid fa-people-roof"></i> Quản Lý & Phát Triển Đội Ngũ</h4>
+              <p>Trực tiếp tuyển chọn, quản lý, phân công công việc và duy trì ngọn lửa nhiệt huyết cho toàn bộ thành
+                viên. Xây dựng môi trường làm việc cởi mở, kỷ luật và hỗ trợ lẫn nhau.</p>
+            </div>
+          </div>
+
+          <div class="station-achievement glass-inset">
+            <div class="achieve-icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="achieve-text">
+              <strong>KẾT QUẢ ĐẠT ĐƯỢC:</strong> Tổ chức thành công sự kiện lớn nhất năm của CLB thu hút đông đảo người
+              tham gia; xây dựng thành công đội ngũ cốt lõi năng động, nhận được đánh giá rất cao về năng lực quản lý và
+              bản lĩnh làm việc dưới áp lực lớn.
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3: NEXT TARGET (Hải Đăng Logistics / Global Supply Chain) -->
+        <div class="timeline-station glass-card future-station" data-station="3">
+          <div class="station-telemetry">
+            <span class="station-year"><i class="fa-solid fa-compass"></i> BẾN ĐỖ TIẾP THEO</span>
+            <span class="station-status status-target">MỤC TIÊU ỨNG TUYỂN</span>
+          </div>
+
+          <div class="station-header">
+            <div class="station-logo-box"><i class="fa-solid fa-ship"></i></div>
+            <div class="station-titles">
+              <h3 class="station-name">HẢI ĐĂNG LOGISTICS (HDG) / CÁC DOANH NGHIỆP VẬN TẢI QUỐC TẾ</h3>
+              <div class="station-role">
+                <span class="role-badge badge-glow">Thực Tập Sinh Logistics & Chứng Từ XNK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-future-desc">
+            <p>
+              Sẵn sàng cống hiến sự tỉ mỉ, khả năng tiếng Anh chuẩn <strong>IELTS 7.5</strong> và kỹ năng văn phòng
+              <strong>MOS</strong> để hỗ trợ quản lý hồ sơ chứng từ xuất nhập khẩu (B/L, Invoice, C/O), liên hệ hãng tàu
+              / đại lý,
+              theo dõi tiến độ lô hàng và học hỏi quy trình vận hành thực tế tại doanh nghiệp logistics.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: CHÙM SAO NĂNG LỰC (Skills & Superpowers Constellation) -->
+    <section id="skills" class="section-container">
+      <div class="section-header text-center">
+        <div class="section-tag-hud"><i class="fa-solid fa-microchip"></i> HỆ THỐNG VŨ KHÍ</div>
+        <h2 class="section-title">Chòm Sao Năng Lực Cốt Lõi</h2>
+        <p class="section-subtitle">Bộ kỹ năng được chuẩn hóa quốc tế và rèn luyện qua thực tế hoạt động</p>
+      </div>
+
+      <div class="skills-constellation-grid">
+
+        <!-- Skill 1: Ngoại Ngữ IELTS 7.5 -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <div class="skill-level-badge">IELTS 7.5 OVERALL</div>
+          <h3 class="skill-title">Ngoại Ngữ & Giao Thương</h3>
+          <p class="skill-desc">
+            Thành thạo cả 4 kỹ năng (Nghe - Nói - Đọc - Viết). Tự tin đọc hiểu tài liệu chuyên ngành Logistics,
+            soạn thảo thư tín thương mại quốc tế và đàm phán trực tiếp với đối tác nước ngoài.
+          </p>
+          <div class="skill-tags">
+            <span>Commercial English</span>
+            <span>Business Emails</span>
+            <span>Cross-cultural Comms</span>
+          </div>
+        </div>
+
+        <!-- Skill 2: Tin Học Văn Phòng MOS -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring ring-cyan">
+            <i class="fa-solid fa-file-excel"></i>
+          </div>
+          <div class="skill-level-badge badge-cyan">MOS SPECIALIST</div>
+          <h3 class="skill-title">Tin Học Văn Phòng (MOS)</h3>
+          <p class="skill-desc">
+            Đạt chứng chỉ <strong>Microsoft Office Specialist (MOS)</strong> chính chỉ quốc tế đủ 3 kỹ năng
+            (Word, Excel, PowerPoint). Xử lý dữ liệu bảng biểu, tính toán chi phí vận tải, báo cáo và thuyết trình
+            chuyên nghiệp.
+          </p>
+          <div class="skill-tags">
+            <span>Microsoft Excel</span>
+            <span>Microsoft Word</span>
+            <span>PowerPoint Master</span>
+          </div>
+        </div>
+
+        <!-- Skill 3: Incoterms & Ngoại Thương -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring ring-gold">
+            <i class="fa-solid fa-boxes-packing"></i>
+          </div>
+          <div class="skill-level-badge badge-gold">ĐIỂM HỌC PHẦN: 8.5/10</div>
+          <h3 class="skill-title">Nghiệp Vụ Ngoại Thương</h3>
+          <p class="skill-desc">
+            Am hiểu sâu 11 điều kiện <strong>Incoterms 2020</strong> (EXW, FOB, CIF, DDP,...), quy trình phân chia rủi
+            ro,
+            chứng từ hải quan, hợp đồng mua bán quốc tế và các phương thức thanh toán L/C, T/T.
+          </p>
+          <div class="skill-tags">
+            <span>Incoterms 2020</span>
+            <span>Shipping Documents</span>
+            <span>Payment Terms</span>
+          </div>
+        </div>
+
+        <!-- Skill 4: Đàm Phán & Giao Tiếp -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring ring-pink">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="skill-level-badge badge-pink">THỰC CHIẾN TÀI TRỢ</div>
+          <h3 class="skill-title">Giao Tiếp & Đàm Phán</h3>
+          <p class="skill-desc">
+            Khả năng truyền đạt thông điệp rõ ràng, lắng nghe tích cực và kết nối ăn ý với các phòng ban/đối tác.
+            Kỹ năng thuyết phục doanh nghiệp tài trợ và xử lý linh hoạt các tình huống phát sinh.
+          </p>
+          <div class="skill-tags">
+            <span>B2B Negotiation</span>
+            <span>Active Listening</span>
+            <span>Stakeholder Management</span>
+          </div>
+        </div>
+
+        <!-- Skill 5: Quản Lý Dự Án & Masterplan -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring ring-orange">
+            <i class="fa-solid fa-sitemap"></i>
+          </div>
+          <div class="skill-level-badge badge-orange">FOUNDING LEADER</div>
+          <h3 class="skill-title">Lập Kế Hoạch & Lãnh Đạo</h3>
+          <p class="skill-desc">
+            Năng lực xây dựng Masterplan chiến dịch dài hạn, quản lý tiến độ, điều phối nhân sự,
+            duy trì kỷ luật và thúc đẩy tinh thần đồng đội hoàn thành mục tiêu dưới áp lực cao.
+          </p>
+          <div class="skill-tags">
+            <span>Masterplan Design</span>
+            <span>Team Leadership</span>
+            <span>Crisis Management</span>
+          </div>
+        </div>
+
+        <!-- Skill 6: Tinh Thần Cầu Tiến & Trách Nhiệm -->
+        <div class="skill-sphere-card glass-card">
+          <div class="sphere-icon-ring ring-green">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div class="skill-level-badge badge-green">TINH THẦN FTU</div>
+          <h3 class="skill-title">Trách Nhiệm & Học Hỏi Nhanh</h3>
+          <p class="skill-desc">
+            Tinh thần trách nhiệm đến cùng trong công việc, thái độ cầu thị, sẵn sàng tiếp thu hướng dẫn
+            và liên tục cập nhật các kiến thức, quy định mới trong ngành xuất nhập khẩu.
+          </p>
+          <div class="skill-tags">
+            <span>Can-do Attitude</span>
+            <span>Fast Learner</span>
+            <span>Detail Oriented</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: TRẠM MÔ PHỎNG DÒNG CHẢY LOGISTICS (Interactive Incoterms Simulator) -->
+    <section id="simulator" class="section-container">
+      <div class="section-header text-center">
+        <div class="section-tag-hud"><i class="fa-solid fa-cubes"></i> TƯ TƯỞNG THỰC HÀNH</div>
+        <h2 class="section-title">Mô Phỏng Chuỗi Cung Ứng & Incoterms 2020</h2>
+        <p class="section-subtitle">Trực quan hóa cách phân định chi phí và điểm chuyển giao rủi ro giữa Người Bán &
+          Người Mua</p>
+      </div>
+
+      <div class="simulator-wrapper glass-card glow-border">
+
+        <!-- Incoterm Selector Bar -->
+        <div class="sim-selector-bar">
+          <span class="selector-label"><i class="fa-solid fa-sliders"></i> Chọn Điều Kiện:</span>
+          <div class="term-buttons" id="term-buttons">
+            <button class="term-btn active" data-term="EXW">EXW (Giao tại xưởng)</button>
+            <button class="term-btn" data-term="FOB">FOB (Giao lên tàu)</button>
+            <button class="term-btn" data-term="CIF">CIF (Tiền hàng, BH & Cước)</button>
+            <button class="term-btn" data-term="DDP">DDP (Giao đã nộp thuế)</button>
+          </div>
+        </div>
+
+        <!-- Visual Voyage Stages -->
+        <div class="voyage-track-container">
+          <div class="voyage-stages">
+
+            <div class="stage-step" id="stage-factory">
+              <div class="step-icon"><i class="fa-solid fa-industry"></i></div>
+              <div class="step-title">Xưởng Người Bán</div>
+              <div class="step-desc">Đóng gói hàng hóa</div>
+              <div class="step-party-tag" id="tag-factory">Người Bán</div>
+            </div>
+
+            <div class="stage-step" id="stage-origin-port">
+              <div class="step-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="step-title">Vận Chuyển Nội Địa</div>
+              <div class="step-desc">Kéo container ra cảng</div>
+              <div class="step-party-tag" id="tag-origin-port">Người Bán</div>
+            </div>
+
+            <div class="stage-step" id="stage-customs-export">
+              <div class="step-icon"><i class="fa-solid fa-passport"></i></div>
+              <div class="step-title">Thông Quan Xuất</div>
+              <div class="step-desc">Mở tờ khai hải quan</div>
+              <div class="step-party-tag" id="tag-customs-export">Người Bán</div>
+            </div>
+
+            <div class="stage-step" id="stage-sea-transit">
+              <div class="step-icon"><i class="fa-solid fa-ship"></i></div>
+              <div class="step-title">Chặng Biển Chính</div>
+              <div class="step-desc">Cước tàu & Bảo hiểm</div>
+              <div class="step-party-tag" id="tag-sea-transit">Người Mua</div>
+            </div>
+
+            <div class="stage-step" id="stage-dest-port">
+              <div class="step-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div class="step-title">Thông Quan Nhập</div>
+              <div class="step-desc">Nộp thuế & kiểm hóa</div>
+              <div class="step-party-tag" id="tag-dest-port">Người Mua</div>
+            </div>
+
+            <div class="stage-step" id="stage-warehouse">
+              <div class="step-icon"><i class="fa-solid fa-warehouse"></i></div>
+              <div class="step-title">Kho Người Mua</div>
+              <div class="step-desc">Giao hàng hoàn tất</div>
+              <div class="step-party-tag" id="tag-warehouse">Người Mua</div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Cargo Spaceship Carrier -->
+          <div class="cargo-carrier-indicator" id="cargo-ship">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="carrier-label">Lô Hàng Đang Di Chuyển</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Rule Description Box -->
+        <div class="term-info-panel glass-inset" id="term-info-panel">
+          <div class="term-info-head">
+            <span class="info-badge" id="info-term-code">FOB - Free on Board (Incoterms 2020)</span>
+            <span class="info-mode">Áp dụng: Vận tải đường biển & đường thủy nội địa</span>
+          </div>
+          <div class="term-info-content">
+            <div class="info-column">
+              <h5><i class="fa-solid fa-circle-arrow-right"></i> Trách Nhiệm Người Bán (Seller):</h5>
+              <p id="seller-duty">Chịu mọi chi phí và rủi ro cho đến khi hàng đã xếp an toàn lên tàu tại cảng bốc hàng
+                chỉ định (Port of Loading). Hoàn tất thủ tục thông quan xuất khẩu.</p>
+            </div>
+            <div class="info-column">
+              <h5><i class="fa-solid fa-circle-arrow-left"></i> Trách Nhiệm Người Mua (Buyer):</h5>
+              <p id="buyer-duty">Ký hợp đồng thuê tàu chở hàng (chịu cước biển Freight), mua bảo hiểm hàng hải và chịu
+                mọi rủi ro mất mát từ thời điểm hàng đã qua lan can/đặt trên tàu.</p>
+            </div>
+          </div>
+          <div class="term-note">
+            <i class="fa-solid fa-lightbulb"></i> <strong>Điểm chuyển giao rủi ro:</strong>
+            <span id="risk-point">Khi hàng hóa được đặt an toàn trên con tàu do người mua chỉ định tại cảng xuất
+              khẩu.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: TRẠM LIÊN LẠC KHÔNG GIAN (Cosmic Contact Command) -->
+    <section id="contact" class="section-container">
+      <div class="section-header text-center">
+        <div class="section-tag-hud"><i class="fa-solid fa-tower-broadcast"></i> TÍN HIỆU LIÊN HÀNH TINH</div>
+        <h2 class="section-title">Trạm Liên Lạc & Kết Nối Tín Hiệu</h2>
+        <p class="section-subtitle">Sẵn sàng phản hồi mọi cơ hội hợp tác và phỏng vấn thực tập</p>
+      </div>
+
+      <div class="contact-station-grid">
+
+        <!-- Left: Quick Info Station Cards -->
+        <div class="contact-info-panel glass-card glow-border">
+          <h3 class="panel-title"><i class="fa-solid fa-address-card"></i> Thông Tin Tọa Độ</h3>
+          <p class="panel-desc">
+            Quý nhà tuyển dụng hoặc đối tác có thể liên hệ trực tiếp qua các kênh liên lạc chính thức dưới đây:
+          </p>
+
+          <div class="coord-items">
+            <!-- Email -->
+            <div class="coord-item glass-inset">
+              <div class="coord-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="coord-meta">
+                <span class="coord-label">Hòm Thư Điện Tử (Email)</span>
+                <a href="mailto:minhman18100@gmail.com" class="coord-value">minhman18100@gmail.com</a>
+              </div>
+              <button class="btn-copy-coord" data-copy="minhman18100@gmail.com" title="Sao chép email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Phone -->
+            <div class="coord-item glass-inset">
+              <div class="coord-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="coord-meta">
+                <span class="coord-label">Đường Dây Nóng (Hotline / Zalo)</span>
+                <a href="tel:0772234647" class="coord-value">0772234647</a>
+              </div>
+              <button class="btn-copy-coord" data-copy="0772234647" title="Sao chép số điện thoại">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Address -->
+            <div class="coord-item glass-inset">
+              <div class="coord-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="coord-meta">
+                <span class="coord-label">Tọa Độ Cư Trú</span>
+                <span class="coord-value">Đê La Thành, Phường Ô Chợ Dừa, Thành phố Hà Nội</span>
+              </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="coord-item glass-inset">
+              <div class="coord-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="coord-meta">
+                <span class="coord-label">Mạng Lưới Nghề Nghiệp (LinkedIn)</span>
+                <a href="https://www.linkedin.com/in/minh1810/" target="_blank" rel="noopener noreferrer"
+                  class="coord-value">linkedin.com/in/minh1810/</a>
+              </div>
+              <a href="https://www.linkedin.com/in/minh1810/" target="_blank" rel="noopener noreferrer"
+                class="btn-external-link" title="Mở trang LinkedIn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- Birthdate -->
+            <div class="coord-item glass-inset">
+              <div class="coord-icon"><i class="fa-solid fa-cake-candles"></i></div>
+              <div class="coord-meta">
+                <span class="coord-label">Ngày Sinh</span>
+                <span class="coord-value">18 / 10 / 2006</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-download-box glass-inset">
+            <div class="cv-down-text">
+              <strong>Hồ Sơ Đầy Đủ:</strong> Bạn muốn xem CV định dạng PDF chính thức?
+            </div>
+            <a href="assets/Bui_Duc_Minh_CV.pdf" target="_blank" class="btn-cosmic-glow w-100"
+              download="CV_Bui_Duc_Minh_Logistics.pdf">
+              <i class="fa-solid fa-file-pdf"></i> Tải Hồ Sơ Bản PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Transmission Form -->
+        <div class="contact-form-panel glass-card">
+          <h3 class="panel-title"><i class="fa-solid fa-paper-plane"></i> Gửi Tín Hiệu Tin Nhắn</h3>
+          <p class="panel-desc">Để lại tin nhắn, tôi sẽ liên hệ lại trong vòng 24 giờ:</p>
+
+          <form id="cosmic-contact-form" class="space-form">
+            <div class="form-group">
+              <label for="sender-name"><i class="fa-solid fa-user"></i> Họ & Tên Của Bạn / Quý Doanh Nghiệp</label>
+              <input type="text" id="sender-name" placeholder="Ví dụ: Đại diện tuyển dụng HDG Logistics" required />
+            </div>
+
+            <div class="form-group">
+              <label for="sender-email"><i class="fa-solid fa-at"></i> Email Phản Hồi</label>
+              <input type="email" id="sender-email" placeholder="email@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="sender-subject"><i class="fa-solid fa-tag"></i> Chủ Đề Liên Hệ</label>
+              <select id="sender-subject">
+                <option value="interview">Mời Phỏng Vấn Thực Tập Sinh Logistics</option>
+                <option value="freelance">Cơ Hội Hợp Tác Dự Án Ngoại Thương</option>
+                <option value="networking">Giao Lưu Học Hỏi & Kết Nối</option>
+                <option value="other">Chủ Đề Khác</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sender-message"><i class="fa-solid fa-comment-dots"></i> Nội Dung Tin Nhắn</label>
+              <textarea id="sender-message" rows="4"
+                placeholder="Nhập lời nhắn hoặc thông tin chi tiết về vị trí/công việc..." required></textarea>
+            </div>
+
+            <div class="form-actions-stack">
+              <button type="submit" class="btn-primary-warp w-100" id="btn-submit-transmission">
+                <span><i class="fa-solid fa-satellite-dish"></i> Phát Tín Hiệu Tin Nhắn</span>
+                <div class="btn-warp-aura"></div>
+              </button>
+
+              <div class="quick-contact-divider">
+                <span>HOẶC KẾT NỐI TỨC THÌ</span>
+              </div>
+
+              <div class="quick-action-btns">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=minhman18100@gmail.com&su=[Lien_He_Portfolio]%20Co_hoi_hop_tac"
+                  target="_blank" class="btn-quick-contact btn-gmail" id="btn-open-gmail">
+                  <i class="fa-brands fa-google"></i> Mở Soạn Thư Trên Gmail
+                </a>
+                <a href="https://zalo.me/0772234647" target="_blank" class="btn-quick-contact btn-zalo"
+                  id="btn-open-zalo">
+                  <i class="fa-solid fa-comment-dots"></i> Chat Trực Tiếp Zalo: 0772234647
+                </a>
+              </div>
+            </div>
+
+            <!-- Feedback Notification Box -->
+            <div class="transmission-status" id="transmission-status"></div>
+
+            <!-- Live Received Messages Panel (Nhật ký tín hiệu vũ trụ) -->
+            <div class="received-inbox-panel glass-inset" id="received-inbox-panel">
+              <div class="inbox-head">
+                <span class="inbox-title"><i class="fa-solid fa-inbox"></i> Nhật Ký Tín Hiệu Vũ Trụ Đã Lưu:</span>
+                <span class="inbox-count" id="inbox-count">0 tin nhắn</span>
+              </div>
+              <div class="inbox-list" id="inbox-list">
+                <div class="inbox-empty">Chưa có tín hiệu nào được lưu. Hãy thử gửi tin nhắn đầu tiên ở trên!</div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Cosmic Footer -->
+  <footer class="cosmic-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">BÙI ĐỨC MINH <span>// 2026</span></div>
+        <p>Logistics & International Trade Portfolio • Foreign Trade University (FTU)</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="#hero" class="warp-to-top" id="btn-warp-top" title="Quay lại đầu trang">
+          <i class="fa-solid fa-rocket"></i>
+          <span>Warp to Top</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom-bar text-center">
+      © 2026 Bùi Đức Minh. Hệ thống thiết kế Universe Edition.
+    </div>
+  </footer>
+
+  <!-- Notification Toast Modal -->
+  <div class="cosmic-toast" id="cosmic-toast">
+    <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="toast-message" id="toast-text">Đã sao chép vào bộ nhớ tạm!</div>
+  </div>
+
+  <script src="script.js?v=2"></script>
+</body>
+
+</html>
